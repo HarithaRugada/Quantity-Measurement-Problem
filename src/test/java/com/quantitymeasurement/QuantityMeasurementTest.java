@@ -8,7 +8,13 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeetInInteger_ReturnInches() {
-        int value = quantityMeasurement.feetToInch(3);
-        Assert.assertEquals(36, value);
+        double value = quantityMeasurement.feetToInch(3);
+        Assert.assertEquals(36, value, 0.0);
+    }
+
+    @Test
+    public void givenFeetInDouble_ReturnInches() {
+        double value = quantityMeasurement.feetToInch(5.5);
+        Assert.assertEquals(66, value, 0.0);
     }
 }
