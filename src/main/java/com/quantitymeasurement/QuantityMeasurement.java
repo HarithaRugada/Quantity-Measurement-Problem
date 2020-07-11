@@ -1,7 +1,7 @@
 package com.quantitymeasurement;
 
 public class QuantityMeasurement {
-    public int feetToInch(int feet) {
+    public double feetToInch(double feet) {
         return feet * 12;
     }
 }
