@@ -1,20 +1,21 @@
 package com.quantitymeasurement;
 
+import com.quantitymeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class QuantityMeasurementTest {
-    QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+    QuantityMeasurement quantityMeasurement;
 
-    @Test
-    public void givenFeetInInteger_ReturnInches() {
-        double value = quantityMeasurement.feetToInch(3);
-        Assert.assertEquals(36, value, 0.0);
+    @Before
+    public void setUp() {
+        quantityMeasurement = new QuantityMeasurement();
     }
 
     @Test
-    public void givenFeetInDouble_ReturnInches() {
-        double value = quantityMeasurement.feetToInch(5.5);
-        Assert.assertEquals(66, value, 0.0);
+    public void givenZeroFeet_WhenComparedWithZeroFeet_ShouldReturnEqual() {
+        boolean result = quantityMeasurement.compareLength(0, 0.0);
+        Assert.assertTrue(result);
     }
 }
