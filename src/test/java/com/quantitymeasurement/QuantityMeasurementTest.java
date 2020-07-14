@@ -106,10 +106,18 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Feet_WhenComparedBy1Inch_ShouldReturnFalse() {
+    public void givenOneFeet_WhenComparedByOneInch_ShouldReturnFalse() {
         QuantityMeasurement q1 = new QuantityMeasurement(1,Unit.FEET);
         q1=quantityMeasurement.convert(q1,Unit.INCH);
         boolean result = q1.equals(new QuantityMeasurement(1,Unit.INCH));
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenOneInch_WhenComparedByOneFeet_ShouldReturnFalse() {
+        QuantityMeasurement q1 = new QuantityMeasurement(1,Unit.INCH);
+        q1=quantityMeasurement.convert(q1,Unit.FEET);
+        boolean result = q1.equals(new QuantityMeasurement(1,Unit.FEET));
         Assert.assertFalse(result);
     }
 }
