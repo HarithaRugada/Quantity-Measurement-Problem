@@ -1,5 +1,6 @@
 package com.quantitymeasurement;
 
+import com.quantitymeasurement.exception.QuantityMeasurementException;
 import com.quantitymeasurement.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,8 +15,16 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenZeroFeet_WhenComparedWithZeroFeet_ShouldReturnEqual() {
-        boolean result = quantityMeasurement.compareLength(0, 0.0);
+    public void givenZeroFeet_WhenComparedWithAnotherZeroFeet_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0 ,Unit.FEET));
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenFeet_WhenComparedWithNullValue_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
+        boolean result = quantityMeasurement.equals(null);
         Assert.assertTrue(result);
     }
 }
