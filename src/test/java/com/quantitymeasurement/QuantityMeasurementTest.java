@@ -184,4 +184,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given2Inch_WhenComparedBy5Centimeter_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH);
+        q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
+        boolean result = q1.equals(new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER));
+        Assert.assertTrue(result);
+    }
 }
