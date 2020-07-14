@@ -11,7 +11,7 @@ public class QuantityMeasurement {
     public QuantityMeasurement() {
     }
 
-    public enum Unit {FEET, INCH}
+    public enum Unit {FEET, INCH, YARD}
 
     public QuantityMeasurement(double value, Unit unitType) {
         this.value = value;
