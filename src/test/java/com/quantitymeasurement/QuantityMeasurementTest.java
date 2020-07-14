@@ -140,7 +140,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given3Feet_WhenComparedBy1Yard_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertTrue(result);
     }
@@ -148,7 +148,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Feet_WhenComparedBy1Yard_ShouldReturnFalse() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertFalse(result);
     }
@@ -156,7 +156,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Inch_WhenComparedBy1Yard_ShouldReturnFalse() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertFalse(result);
     }
@@ -164,7 +164,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Yard_WhenComparedBy36Inch_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_INCH);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_INCH);
         boolean result = q1.equals(new QuantityMeasurement(36, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
@@ -172,7 +172,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given36Inch_WhenComparedBy1Yard_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(36, QuantityMeasurement.Unit.INCH);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertTrue(result);
     }
@@ -180,7 +180,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Yard_WhenComparedBy3Feet_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_FEET);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_FEET);
         boolean result = q1.equals(new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
@@ -188,7 +188,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given2Inch_WhenComparedByCentimeter_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertTrue(result);
     }
@@ -196,7 +196,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Inch_WhenComparedBy1Centimeter_ShouldReturnFalse() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertFalse(result);
     }
@@ -204,7 +204,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Feet_WhenComparedBy1Centimeter_ShouldReturnFalse() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertFalse(result);
     }
@@ -212,7 +212,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Centimeter_WhenComparedByFeet_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_FEET);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_FEET);
         boolean result = q1.equals(new QuantityMeasurement(0.03, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
@@ -220,7 +220,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Feet_WhenComparedByCentimeter_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(30.48, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
@@ -228,7 +228,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given5Centimeter_WhenComparedByInch_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER);
-        q1=quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_INCH);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_INCH);
         boolean result = q1.equals(new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
