@@ -76,4 +76,11 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement1 = quantityMeasurement;
         Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement1));
     }
+
+    @Test
+    public void givenInchValue_WhenComparedByType_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.INCH);
+        boolean result = quantityMeasurement.equals(quantityMeasurement);
+        Assert.assertTrue(result);
+    }
 }
