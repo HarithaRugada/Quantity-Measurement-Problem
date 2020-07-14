@@ -1,7 +1,7 @@
 package com.quantitymeasurement;
 
-import com.quantitymeasurement.exception.QuantityMeasurementException;
 import com.quantitymeasurement.service.QuantityMeasurement;
+import com.quantitymeasurement.utility.Unit;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class QuantityMeasurementTest {
     public void givenFeetValue_WhenComparedWithNullValue_ShouldReturnTrue() {
         quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
         boolean result = quantityMeasurement.equals(null);
-        Assert.assertTrue(result);
+        Assert.assertFalse(result);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeetValue_WhenComparedByNegativeValue_ShouldReturnFalse() {
-        quantityMeasurement = new QuantityMeasurement(-2.0,Unit.FEET);
+        quantityMeasurement = new QuantityMeasurement(-2.0, Unit.FEET);
         boolean result = quantityMeasurement.equals(new QuantityMeasurement(0,Unit.FEET));
         Assert.assertFalse(result);
     }
