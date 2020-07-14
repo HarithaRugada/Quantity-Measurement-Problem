@@ -27,4 +27,11 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.equals(null);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenFeetValue_WhenComparedByReference_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
+        QuantityMeasurement quantityMeasurement1 = quantityMeasurement;
+        Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement1));
+    }
 }
