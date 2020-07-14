@@ -34,4 +34,11 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement1 = quantityMeasurement;
         Assert.assertTrue(quantityMeasurement.equals(quantityMeasurement1));
     }
+
+    @Test
+    public void givenFeetValue_WhenComparedByType_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
+        boolean result = quantityMeasurement.equals(quantityMeasurement);
+        Assert.assertTrue(result);
+    }
 }
