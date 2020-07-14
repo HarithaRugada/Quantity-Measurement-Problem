@@ -120,4 +120,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(1,Unit.FEET));
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenOneFeet_WhenComparedByInch_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(1,Unit.FEET);
+        q1=quantityMeasurement.convert(q1,Unit.INCH);
+        boolean result = q1.equals(new QuantityMeasurement(12,Unit.INCH));
+        Assert.assertTrue(result);
+    }
 }
