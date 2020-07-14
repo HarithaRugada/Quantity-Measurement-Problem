@@ -160,4 +160,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void given1Yard_WhenComparedBy36Inch_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
+        q1=quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_INCH);
+        boolean result = q1.equals(new QuantityMeasurement(36, QuantityMeasurement.Unit.INCH));
+        Assert.assertTrue(result);
+    }
 }
