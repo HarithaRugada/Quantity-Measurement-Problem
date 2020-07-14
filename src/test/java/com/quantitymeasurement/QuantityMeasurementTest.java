@@ -186,7 +186,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given2Inch_WhenComparedBy5Centimeter_ShouldReturnTrue() {
+    public void given2Inch_WhenComparedByCentimeter_ShouldReturnTrue() {
         QuantityMeasurement q1 = new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH);
         q1=quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER));
@@ -222,6 +222,14 @@ public class QuantityMeasurementTest {
         QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
         q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(30.48, QuantityMeasurement.Unit.FEET));
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given5Centimeter_WhenComparedByInch_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER);
+        q1=quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_INCH);
+        boolean result = q1.equals(new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
 }
