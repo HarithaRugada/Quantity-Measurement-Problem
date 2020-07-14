@@ -14,6 +14,11 @@ public class QuantityMeasurement {
         this.unitType = unitType;
     }
 
+    public QuantityMeasurement convert(QuantityMeasurement q1, Unit unitType) {
+        q1.value = q1.value * unitType.unit;
+        return q1;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
