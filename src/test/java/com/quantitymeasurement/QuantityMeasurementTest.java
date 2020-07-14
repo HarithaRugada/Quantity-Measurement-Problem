@@ -55,4 +55,11 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.equals(new QuantityMeasurement(0,Unit.FEET));
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenZeroInch_WhenComparedWithAnotherZeroInch_ShouldReturnTrue() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.INCH);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0 ,Unit.INCH));
+        Assert.assertTrue(result);
+    }
 }
