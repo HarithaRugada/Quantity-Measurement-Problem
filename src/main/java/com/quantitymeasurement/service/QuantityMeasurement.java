@@ -1,6 +1,8 @@
 package com.quantitymeasurement.service;
 
-import com.quantitymeasurement.utility.Unit;
+import com.quantitymeasurement.utility.UnitConversion;
+
+import java.util.Objects;
 
 public class QuantityMeasurement {
     public double value;
@@ -9,12 +11,14 @@ public class QuantityMeasurement {
     public QuantityMeasurement() {
     }
 
+    public enum Unit {FEET, INCH}
+
     public QuantityMeasurement(double value, Unit unitType) {
         this.value = value;
         this.unitType = unitType;
     }
 
-    public QuantityMeasurement convert(QuantityMeasurement q1, Unit unitType) {
+    public QuantityMeasurement convertValue(QuantityMeasurement q1, UnitConversion unitType) {
         q1.value = q1.value * unitType.unit;
         return q1;
     }
@@ -24,7 +28,8 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.value, value) == 0 &&
-                unitType == that.unitType;
+        if (Objects.equals(value, that.value))
+            return true;
+        return false;
     }
 }
