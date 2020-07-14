@@ -216,4 +216,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(0.03, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1Feet_WhenComparedByCentimeter_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+        q1=quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
+        boolean result = q1.equals(new QuantityMeasurement(30.48, QuantityMeasurement.Unit.FEET));
+        Assert.assertTrue(result);
+    }
 }
