@@ -90,4 +90,11 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.equals(new QuantityMeasurement(1,Unit.INCH));
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenInchValue_WhenComparedByNegativeValue_ShouldReturnFalse() {
+        quantityMeasurement = new QuantityMeasurement(-2.0, Unit.INCH);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0,Unit.INCH));
+        Assert.assertFalse(result);
+    }
 }
