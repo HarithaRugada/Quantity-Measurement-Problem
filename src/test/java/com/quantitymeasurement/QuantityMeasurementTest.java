@@ -176,4 +176,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1Yard_WhenComparedBy3Feet_ShouldReturnTrue() {
+        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
+        q1=quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_FEET);
+        boolean result = q1.equals(new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET));
+        Assert.assertTrue(result);
+    }
 }
