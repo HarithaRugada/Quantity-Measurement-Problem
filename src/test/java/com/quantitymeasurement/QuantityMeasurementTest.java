@@ -22,7 +22,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetValue_WhenComparedWithNullValue_ShouldReturnTrue() {
+    public void givenFeetValue_WhenComparedWithNullValue_ShouldReturnFalse() {
         quantityMeasurement = new QuantityMeasurement(0,Unit.FEET);
         boolean result = quantityMeasurement.equals(null);
         Assert.assertFalse(result);
@@ -61,5 +61,12 @@ public class QuantityMeasurementTest {
         quantityMeasurement = new QuantityMeasurement(0,Unit.INCH);
         boolean result = quantityMeasurement.equals(new QuantityMeasurement(0 ,Unit.INCH));
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenInchValue_WhenComparedWithNullValue_ShouldReturnFalse() {
+        quantityMeasurement = new QuantityMeasurement(0,Unit.INCH);
+        boolean result = quantityMeasurement.equals(null);
+        Assert.assertFalse(result);
     }
 }
