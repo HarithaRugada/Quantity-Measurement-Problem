@@ -286,4 +286,13 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(1000.0, QuantityMeasurement.Unit.MILLILITRE));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1Gallon_WhenComparedByMilliLitre_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.GALLON);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.GALLON_TO_LITRE);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.LITRE_TO_MILLILITRE);
+        boolean result = q1.equals(new QuantityMeasurement(3780.0, QuantityMeasurement.Unit.MILLILITRE));
+        Assert.assertTrue(result);
+    }
 }
