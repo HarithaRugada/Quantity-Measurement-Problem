@@ -12,7 +12,7 @@ public class QuantityMeasurement {
     public QuantityMeasurement() {
     }
 
-    public enum Unit {FEET, INCH, YARD, CENTIMETER}
+    public enum Unit {FEET, INCH, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE}
 
     public QuantityMeasurement(Double value, Unit unitType) throws QuantityMeasurementException {
         try {
