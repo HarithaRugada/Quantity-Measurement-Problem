@@ -311,4 +311,13 @@ public class QuantityMeasurementTest {
         q2 = quantityMeasurement.convertValue(q2, UnitConversion.MILLILITRE_TO_LITRE);
         Assert.assertEquals(2, new AddOperation().addition(q1, q2), 0.0);
     }
+
+    @Test
+    public void givenTwoWeights_WhenAdded_ShouldReturnInKilogram() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.TONNE);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.TONNE_TO_KILOGRAM);
+        QuantityMeasurement q2=new QuantityMeasurement(1000.0, QuantityMeasurement.Unit.GRAM);
+        q2=quantityMeasurement.convertValue(q2,UnitConversion.GRAM_TO_KILOGRAM);
+        Assert.assertEquals(1001,new AddOperation().addition(q1,q2),0.0);
+    }
 }
