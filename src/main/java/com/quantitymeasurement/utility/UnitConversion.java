@@ -18,7 +18,9 @@ public enum UnitConversion {
     KILOGRAM_TO_GRAM(1000.0),
     GRAM_TO_KILOGRAM(1 / 1000.0),
     TONNE_TO_KILOGRAM(1000.0),
-    KILOGRAM_TO_TONNE(1 / 1000.0);
+    KILOGRAM_TO_TONNE(1 / 1000.0),
+    FAHRENHEIT_TO_CELSIUS(100.0 / 212.0),
+    CELSIUS_TO_FAHRENHEIT(212.0 / 100.0);
 
     public double unit;
 
