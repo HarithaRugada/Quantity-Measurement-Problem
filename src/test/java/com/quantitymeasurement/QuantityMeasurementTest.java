@@ -270,4 +270,12 @@ public class QuantityMeasurementTest {
         q2=quantityMeasurement.convertValue(q2,UnitConversion.CENTIMETER_TO_INCH);
         Assert.assertEquals(3,Math.round(new AddOperation().addition(q1,q2)),0.0);
     }
+
+    @Test
+    public void given1Gallon_WhenComparedByLitre_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.GALLON);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.GALLON_TO_LITRE);
+        boolean result = q1.equals(new QuantityMeasurement(3.78, QuantityMeasurement.Unit.LITRE));
+        Assert.assertTrue(result);
+    }
 }
