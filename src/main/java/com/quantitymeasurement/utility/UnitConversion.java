@@ -12,7 +12,9 @@ public enum UnitConversion {
     FEET_TO_CENTIMETER(30.48),
     CENTIMETER_TO_FEET(1 / 30.48),
     GALLON_TO_LITRE(3.78),
-    LITRE_TO_MILLILITRE(1000);
+    LITRE_TO_GALLON(1 / 3.78),
+    LITRE_TO_MILLILITRE(1000),
+    MILLILITRE_TO_LITRE(1 / 1000);
 
     public double unit;
 

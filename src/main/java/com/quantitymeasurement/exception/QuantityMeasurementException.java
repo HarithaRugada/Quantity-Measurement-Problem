@@ -1,6 +1,6 @@
 package com.quantitymeasurement.exception;
 
-public class QuantityMeasurementException extends Exception{
+public class QuantityMeasurementException extends Exception {
     public enum ExceptionType {
         NULL_VALUE
     }
