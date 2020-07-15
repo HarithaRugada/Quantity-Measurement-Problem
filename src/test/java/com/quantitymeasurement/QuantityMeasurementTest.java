@@ -320,4 +320,12 @@ public class QuantityMeasurementTest {
         q2=quantityMeasurement.convertValue(q2,UnitConversion.GRAM_TO_KILOGRAM);
         Assert.assertEquals(1001,new AddOperation().addition(q1,q2),0.0);
     }
+
+    @Test
+    public void given100Celsius_WhenComparedBy212Fahrenheit_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(100.0, QuantityMeasurement.Unit.CELSIUS);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.CELSIUS_TO_FAHRENHEIT);
+        boolean result = q1.equals(new QuantityMeasurement(212.0, QuantityMeasurement.Unit.FAHRENHEIT));
+        Assert.assertTrue(result);
+    }
 }
