@@ -42,8 +42,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenFeetValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
-        QuantityMeasurement quantityMeasurement1=new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
-        Assert.assertEquals(quantityMeasurement.getClass(),quantityMeasurement1.getClass());
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
+        Assert.assertEquals(quantityMeasurement.getClass(), quantityMeasurement1.getClass());
     }
 
     @Test
@@ -86,8 +86,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenInchValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
-        QuantityMeasurement quantityMeasurement1=new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
-        Assert.assertEquals(quantityMeasurement.getClass(),quantityMeasurement1.getClass());
+        QuantityMeasurement quantityMeasurement1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
+        Assert.assertEquals(quantityMeasurement.getClass(), quantityMeasurement1.getClass());
     }
 
     @Test
@@ -243,6 +243,14 @@ public class QuantityMeasurementTest {
     public void givenTwoLengths_WhenAdded_ShouldReturn4Inch() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
         QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
-        Assert.assertEquals(4.0,new AddOperation().addition(q1,q2),0.0);
+        Assert.assertEquals(4.0, new AddOperation().addition(q1, q2), 0.0);
+    }
+
+    @Test
+    public void givenTwoLengths_WhenAdded_ShouldReturn_14Inch() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_INCH);
+        QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
+        Assert.assertEquals(14, new AddOperation().addition(q1, q2), 0.0);
     }
 }
