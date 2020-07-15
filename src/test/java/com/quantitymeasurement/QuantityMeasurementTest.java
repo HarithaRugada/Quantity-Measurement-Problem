@@ -262,4 +262,12 @@ public class QuantityMeasurementTest {
         q2=quantityMeasurement.convertValue(q2,UnitConversion.FEET_TO_INCH);
         Assert.assertEquals(24,new AddOperation().addition(q1,q2),0.0);
     }
+
+    @Test
+    public void givenTwoLengths_WhenAdded_ShouldReturn3Inch() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
+        QuantityMeasurement q2 = new QuantityMeasurement(2.5, QuantityMeasurement.Unit.CENTIMETER);
+        q2=quantityMeasurement.convertValue(q2,UnitConversion.CENTIMETER_TO_INCH);
+        Assert.assertEquals(3,Math.round(new AddOperation().addition(q1,q2)),0.0);
+    }
 }
