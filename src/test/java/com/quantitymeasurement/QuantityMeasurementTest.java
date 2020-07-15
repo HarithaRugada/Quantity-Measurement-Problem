@@ -247,10 +247,19 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengths_WhenAdded_ShouldReturn_14Inch() throws QuantityMeasurementException {
+    public void givenTwoLengths_WhenAdded_ShouldReturn14Inch() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_INCH);
         QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
         Assert.assertEquals(14, new AddOperation().addition(q1, q2), 0.0);
+    }
+
+    @Test
+    public void givenTwoLengths_WhenAdded_ShouldReturn24Inch() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.FEET_TO_INCH);
+        QuantityMeasurement q2 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
+        q2=quantityMeasurement.convertValue(q2,UnitConversion.FEET_TO_INCH);
+        Assert.assertEquals(24,new AddOperation().addition(q1,q2),0.0);
     }
 }
