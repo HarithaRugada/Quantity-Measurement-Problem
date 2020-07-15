@@ -41,8 +41,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenFeetValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
-        boolean result = quantityMeasurement.equals(quantityMeasurement);
-        Assert.assertTrue(result);
+        QuantityMeasurement quantityMeasurement1=new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
+        Assert.assertEquals(quantityMeasurement.getClass(),quantityMeasurement1.getClass());
     }
 
     @Test
@@ -85,8 +85,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenInchValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(quantityMeasurement);
-        Assert.assertTrue(result);
+        QuantityMeasurement quantityMeasurement1=new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
+        Assert.assertEquals(quantityMeasurement.getClass(),quantityMeasurement1.getClass());
     }
 
     @Test
