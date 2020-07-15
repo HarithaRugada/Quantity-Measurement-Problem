@@ -278,4 +278,12 @@ public class QuantityMeasurementTest {
         boolean result = q1.equals(new QuantityMeasurement(3.78, QuantityMeasurement.Unit.LITRE));
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void given1Litre_WhenComparedByMilliLitre_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.LITRE);
+        q1=quantityMeasurement.convertValue(q1,UnitConversion.LITRE_TO_MILLILITRE);
+        boolean result = q1.equals(new QuantityMeasurement(1000.0, QuantityMeasurement.Unit.MILLILITRE));
+        Assert.assertTrue(result);
+    }
 }
