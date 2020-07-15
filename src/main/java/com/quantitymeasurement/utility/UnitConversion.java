@@ -1,6 +1,9 @@
 package com.quantitymeasurement.utility;
 
 public enum UnitConversion {
+    /**
+     * Conversions
+     */
     INCH_TO_FEET(1 / 12.0),
     FEET_TO_INCH(1 * 12.0),
     FEET_TO_YARD(1 / 3.0),
@@ -24,6 +27,9 @@ public enum UnitConversion {
 
     public double unit;
 
+    /**
+     * @param unitValue
+     */
     UnitConversion(double unitValue) {
         this.unit = unitValue;
     }

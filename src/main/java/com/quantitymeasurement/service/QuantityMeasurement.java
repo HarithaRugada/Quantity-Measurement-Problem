@@ -12,8 +12,14 @@ public class QuantityMeasurement {
     public QuantityMeasurement() {
     }
 
+    //Units
     public enum Unit {FEET, INCH, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE, KILOGRAM, GRAM, TONNE, FAHRENHEIT, CELSIUS}
 
+    /**
+     * @param value
+     * @param unitType
+     * @throws QuantityMeasurementException
+     */
     public QuantityMeasurement(Double value, Unit unitType) throws QuantityMeasurementException {
         try {
             this.value = value;
@@ -23,6 +29,11 @@ public class QuantityMeasurement {
         }
     }
 
+    /**
+     * @param q1
+     * @param unitType
+     * @return converted value
+     */
     public QuantityMeasurement convertValue(QuantityMeasurement q1, UnitConversion unitType) {
         q1.value = q1.value * unitType.unit;
         return q1;
