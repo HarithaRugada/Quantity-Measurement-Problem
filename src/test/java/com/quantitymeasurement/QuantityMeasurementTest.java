@@ -2,6 +2,7 @@ package com.quantitymeasurement;
 
 import com.quantitymeasurement.exception.QuantityMeasurementException;
 import com.quantitymeasurement.service.QuantityMeasurement;
+import com.quantitymeasurement.utility.AddOperation;
 import com.quantitymeasurement.utility.UnitConversion;
 import org.junit.Assert;
 import org.junit.Before;
@@ -236,5 +237,12 @@ public class QuantityMeasurementTest {
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_INCH);
         QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
         Assert.assertEquals(Math.round(q1.value), q2.value, 0.0);
+    }
+
+    @Test
+    public void givenTwoLengths_WhenAdded_ShouldReturn4Inch() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
+        QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
+        Assert.assertEquals(4.0,new AddOperation().addition(q1,q2),0.0);
     }
 }
