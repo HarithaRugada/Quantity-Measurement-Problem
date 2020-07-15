@@ -303,4 +303,12 @@ public class QuantityMeasurementTest {
         QuantityMeasurement q2 = new QuantityMeasurement(3.78, QuantityMeasurement.Unit.LITRE);
         Assert.assertEquals(7.56, new AddOperation().addition(q1, q2), 0.0);
     }
+
+    @Test
+    public void givenTwoVolumes_WhenAdded_ShouldReturn2Litre() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.LITRE);
+        QuantityMeasurement q2 = new QuantityMeasurement(1000.0, QuantityMeasurement.Unit.MILLILITRE);
+        q2 = quantityMeasurement.convertValue(q2, UnitConversion.MILLILITRE_TO_LITRE);
+        Assert.assertEquals(2, new AddOperation().addition(q1, q2), 0.0);
+    }
 }
