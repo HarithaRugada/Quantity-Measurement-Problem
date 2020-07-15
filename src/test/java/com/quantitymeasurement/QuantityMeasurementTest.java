@@ -1,5 +1,6 @@
 package com.quantitymeasurement;
 
+import com.quantitymeasurement.exception.QuantityMeasurementException;
 import com.quantitymeasurement.service.QuantityMeasurement;
 import com.quantitymeasurement.utility.UnitConversion;
 import org.junit.Assert;
@@ -15,221 +16,225 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenZeroFeet_WhenComparedWithAnotherZeroFeet_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET));
+    public void givenZeroFeet_WhenComparedWithAnotherZeroFeet_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenFeetValue_WhenComparedWithNullValue_ShouldReturnFalse() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET);
-        boolean result = quantityMeasurement.equals(null);
-        Assert.assertFalse(result);
+    public void givenNullValue_UnitTypeFeet_ShouldThrowException() {
+        try {
+            quantityMeasurement = new QuantityMeasurement(null, QuantityMeasurement.Unit.FEET);
+        } catch (QuantityMeasurementException quantityMeasurementException) {
+            System.out.println(quantityMeasurementException.getMessage());
+        }
     }
 
     @Test
-    public void givenFeetValue_WhenComparedByReference_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET);
+    public void givenFeetValue_WhenComparedByReference_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
         QuantityMeasurement quantityMeasurement1 = quantityMeasurement;
         Assert.assertEquals(quantityMeasurement, quantityMeasurement1);
     }
 
     @Test
-    public void givenFeetValue_WhenComparedByType_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET);
+    public void givenFeetValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
         boolean result = quantityMeasurement.equals(quantityMeasurement);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenFeetValue_WhenComparedByAnotherValue_ShouldReturnFalse() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET));
+    public void givenFeetValue_WhenComparedByAnotherValue_ShouldReturnFalse() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenFeetValue_WhenComparedByNegativeValue_ShouldReturnFalse() {
+    public void givenFeetValue_WhenComparedByNegativeValue_ShouldReturnFalse() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(-2.0, QuantityMeasurement.Unit.FEET);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET));
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenZeroInch_WhenComparedWithAnotherZeroInch_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH));
+    public void givenZeroInch_WhenComparedWithAnotherZeroInch_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenInchValue_WhenComparedWithNullValue_ShouldReturnFalse() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(null);
-        Assert.assertFalse(result);
+    public void givenNullValue_UnitTypeInch_ShouldThrowException() {
+        try {
+            quantityMeasurement = new QuantityMeasurement(null, QuantityMeasurement.Unit.INCH);
+        } catch (QuantityMeasurementException quantityMeasurementException) {
+            System.out.println(quantityMeasurementException.getMessage());
+        }
     }
 
     @Test
-    public void givenInchValue_WhenComparedByReference_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
+    public void givenInchValue_WhenComparedByReference_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
         QuantityMeasurement quantityMeasurement1 = quantityMeasurement;
         Assert.assertEquals(quantityMeasurement, quantityMeasurement1);
     }
 
     @Test
-    public void givenInchValue_WhenComparedByType_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
+    public void givenInchValue_WhenComparedByType_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
         boolean result = quantityMeasurement.equals(quantityMeasurement);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenInchValue_WhenComparedByAnotherValue_ShouldReturnFalse() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH));
+    public void givenInchValue_WhenComparedByAnotherValue_ShouldReturnFalse() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenInchValue_WhenComparedByNegativeValue_ShouldReturnFalse() {
+    public void givenInchValue_WhenComparedByNegativeValue_ShouldReturnFalse() throws QuantityMeasurementException {
         quantityMeasurement = new QuantityMeasurement(-2.0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH));
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenZeroFeet_WhenComparedByZeroInch_ShouldReturnTrue() {
-        quantityMeasurement = new QuantityMeasurement(0, QuantityMeasurement.Unit.INCH);
-        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0, QuantityMeasurement.Unit.FEET));
+    public void givenZeroFeet_WhenComparedByZeroInch_ShouldReturnTrue() throws QuantityMeasurementException {
+        quantityMeasurement = new QuantityMeasurement(0.0, QuantityMeasurement.Unit.INCH);
+        boolean result = quantityMeasurement.equals(new QuantityMeasurement(0.0, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenOneFeet_WhenComparedByOneInch_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+    public void givenOneFeet_WhenComparedByOneInch_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_INCH);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenOneInch_WhenComparedByOneFeet_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH);
+    public void givenOneInch_WhenComparedByOneFeet_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_FEET);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void givenOneFeet_WhenComparedByInch_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+    public void givenOneFeet_WhenComparedByInch_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_INCH);
-        boolean result = q1.equals(new QuantityMeasurement(12, QuantityMeasurement.Unit.INCH));
+        boolean result = q1.equals(new QuantityMeasurement(12.0, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void givenInch_WhenComparedByFeet_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(12, QuantityMeasurement.Unit.INCH);
+    public void givenInch_WhenComparedByFeet_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(12.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_FEET);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given3Feet_WhenComparedBy1Yard_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET);
+    public void given3Feet_WhenComparedBy1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(3.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given1Feet_WhenComparedBy1Yard_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+    public void given1Feet_WhenComparedBy1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_YARD);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void given1Inch_WhenComparedBy1Yard_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH);
+    public void given1Inch_WhenComparedBy1Yard_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void given1Yard_WhenComparedBy36Inch_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
+    public void given1Yard_WhenComparedBy36Inch_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_INCH);
-        boolean result = q1.equals(new QuantityMeasurement(36, QuantityMeasurement.Unit.INCH));
+        boolean result = q1.equals(new QuantityMeasurement(36.0, QuantityMeasurement.Unit.INCH));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given36Inch_WhenComparedBy1Yard_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(36, QuantityMeasurement.Unit.INCH);
+    public void given36Inch_WhenComparedBy1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(36.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_YARD);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given1Yard_WhenComparedBy3Feet_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.YARD);
+    public void given1Yard_WhenComparedBy3Feet_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.YARD);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.YARD_TO_FEET);
-        boolean result = q1.equals(new QuantityMeasurement(3, QuantityMeasurement.Unit.FEET));
+        boolean result = q1.equals(new QuantityMeasurement(3.0, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given2Inch_WhenComparedByCentimeter_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH);
+    public void given2Inch_WhenComparedByCentimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given1Inch_WhenComparedBy1Centimeter_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.INCH);
+    public void given1Inch_WhenComparedBy1Centimeter_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.INCH);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.INCH_TO_CENTIMETER);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void given1Feet_WhenComparedBy1Centimeter_ShouldReturnFalse() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+    public void given1Feet_WhenComparedBy1Centimeter_ShouldReturnFalse() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
-        boolean result = q1.equals(new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER));
+        boolean result = q1.equals(new QuantityMeasurement(1.0, QuantityMeasurement.Unit.CENTIMETER));
         Assert.assertFalse(result);
     }
 
     @Test
-    public void given1Centimeter_WhenComparedByFeet_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.CENTIMETER);
+    public void given1Centimeter_WhenComparedByFeet_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.CENTIMETER);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_FEET);
-        boolean result = q1.equals(new QuantityMeasurement(0.03, QuantityMeasurement.Unit.FEET));
-        Assert.assertTrue(result);
+        QuantityMeasurement q2 = new QuantityMeasurement(0.03, QuantityMeasurement.Unit.FEET);
+        Assert.assertEquals(Math.round(q1.value * 100.0) / 100.0, q2.value, 0.0);
     }
 
     @Test
-    public void given1Feet_WhenComparedByCentimeter_ShouldReturnTrue() {
-        QuantityMeasurement q1 = new QuantityMeasurement(1, QuantityMeasurement.Unit.FEET);
+    public void given1Feet_WhenComparedByCentimeter_ShouldReturnTrue() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_CENTIMETER);
         boolean result = q1.equals(new QuantityMeasurement(30.48, QuantityMeasurement.Unit.FEET));
         Assert.assertTrue(result);
     }
 
     @Test
-    public void given5Centimeter_WhenComparedByInch_ShouldReturnTrue() {
+    public void given5Centimeter_WhenComparedByInch_ShouldReturnTrue() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(5.08, QuantityMeasurement.Unit.CENTIMETER);
         q1 = quantityMeasurement.convertValue(q1, UnitConversion.CENTIMETER_TO_INCH);
-        boolean result = q1.equals(new QuantityMeasurement(2, QuantityMeasurement.Unit.INCH));
-        Assert.assertTrue(result);
+        QuantityMeasurement q2 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
+        Assert.assertEquals(Math.round(q1.value), q2.value, 0.0);
     }
 }
