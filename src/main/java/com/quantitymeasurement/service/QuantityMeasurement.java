@@ -1,5 +1,6 @@
 package com.quantitymeasurement.service;
 
+import com.quantitymeasurement.exception.QuantityMeasurementException;
 import com.quantitymeasurement.utility.UnitConversion;
 
 import java.util.Objects;
@@ -13,9 +14,13 @@ public class QuantityMeasurement {
 
     public enum Unit {FEET, INCH, YARD, CENTIMETER}
 
-    public QuantityMeasurement(double value, Unit unitType) {
-        this.value = value;
-        this.unitType = unitType;
+    public QuantityMeasurement(Double value, Unit unitType) throws QuantityMeasurementException {
+        try {
+            this.value = value;
+            this.unitType = unitType;
+        } catch (NullPointerException nullPointerException) {
+            throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_VALUE, "Null value Provided");
+        }
     }
 
     public QuantityMeasurement convertValue(QuantityMeasurement q1, UnitConversion unitType) {
