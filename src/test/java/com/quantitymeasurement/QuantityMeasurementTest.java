@@ -257,24 +257,24 @@ public class QuantityMeasurementTest {
     @Test
     public void givenTwoLengths_WhenAdded_ShouldReturn24Inch() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
-        q1=quantityMeasurement.convertValue(q1,UnitConversion.FEET_TO_INCH);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.FEET_TO_INCH);
         QuantityMeasurement q2 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.FEET);
-        q2=quantityMeasurement.convertValue(q2,UnitConversion.FEET_TO_INCH);
-        Assert.assertEquals(24,new AddOperation().addition(q1,q2),0.0);
+        q2 = quantityMeasurement.convertValue(q2, UnitConversion.FEET_TO_INCH);
+        Assert.assertEquals(24, new AddOperation().addition(q1, q2), 0.0);
     }
 
     @Test
     public void givenTwoLengths_WhenAdded_ShouldReturn3Inch() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(2.0, QuantityMeasurement.Unit.INCH);
         QuantityMeasurement q2 = new QuantityMeasurement(2.5, QuantityMeasurement.Unit.CENTIMETER);
-        q2=quantityMeasurement.convertValue(q2,UnitConversion.CENTIMETER_TO_INCH);
-        Assert.assertEquals(3,Math.round(new AddOperation().addition(q1,q2)),0.0);
+        q2 = quantityMeasurement.convertValue(q2, UnitConversion.CENTIMETER_TO_INCH);
+        Assert.assertEquals(3, Math.round(new AddOperation().addition(q1, q2)), 0.0);
     }
 
     @Test
     public void given1Gallon_WhenComparedByLitre_ShouldReturnTrue() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.GALLON);
-        q1=quantityMeasurement.convertValue(q1,UnitConversion.GALLON_TO_LITRE);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.GALLON_TO_LITRE);
         boolean result = q1.equals(new QuantityMeasurement(3.78, QuantityMeasurement.Unit.LITRE));
         Assert.assertTrue(result);
     }
@@ -282,7 +282,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Litre_WhenComparedByMilliLitre_ShouldReturnTrue() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.LITRE);
-        q1=quantityMeasurement.convertValue(q1,UnitConversion.LITRE_TO_MILLILITRE);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.LITRE_TO_MILLILITRE);
         boolean result = q1.equals(new QuantityMeasurement(1000.0, QuantityMeasurement.Unit.MILLILITRE));
         Assert.assertTrue(result);
     }
@@ -290,9 +290,17 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Gallon_WhenComparedByMilliLitre_ShouldReturnTrue() throws QuantityMeasurementException {
         QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.GALLON);
-        q1=quantityMeasurement.convertValue(q1,UnitConversion.GALLON_TO_LITRE);
-        q1=quantityMeasurement.convertValue(q1,UnitConversion.LITRE_TO_MILLILITRE);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.GALLON_TO_LITRE);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.LITRE_TO_MILLILITRE);
         boolean result = q1.equals(new QuantityMeasurement(3780.0, QuantityMeasurement.Unit.MILLILITRE));
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenTwoVolumes_WhenAdded_ShouldReturnInLitre() throws QuantityMeasurementException {
+        QuantityMeasurement q1 = new QuantityMeasurement(1.0, QuantityMeasurement.Unit.GALLON);
+        q1 = quantityMeasurement.convertValue(q1, UnitConversion.GALLON_TO_LITRE);
+        QuantityMeasurement q2 = new QuantityMeasurement(3.78, QuantityMeasurement.Unit.LITRE);
+        Assert.assertEquals(7.56, new AddOperation().addition(q1, q2), 0.0);
     }
 }
