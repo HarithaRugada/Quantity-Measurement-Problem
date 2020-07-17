@@ -1,42 +1,31 @@
 package com.quantitymeasurement.service;
 
+import com.quantitymeasurement.enums.Type;
 import com.quantitymeasurement.exception.QuantityMeasurementException;
-import com.quantitymeasurement.utility.UnitConversion;
+import com.quantitymeasurement.enums.UnitConversion;
 
 import java.util.Objects;
 
 public class QuantityMeasurement {
-    public double value;
-    public Unit unitType;
+    public Double value;
+    public Type type;
 
     public QuantityMeasurement() {
     }
 
-    //Units
-    public enum Unit {FEET, INCH, YARD, CENTIMETER, GALLON, LITRE, MILLILITRE, KILOGRAM, GRAM, TONNE, FAHRENHEIT, CELSIUS}
-
-    /**
-     * @param value
-     * @param unitType
-     * @throws QuantityMeasurementException
-     */
-    public QuantityMeasurement(Double value, Unit unitType) throws QuantityMeasurementException {
+    public QuantityMeasurement(Double value, UnitConversion unit) throws QuantityMeasurementException {
         try {
-            this.value = value;
-            this.unitType = unitType;
+            this.value = unit.unitConversion(value,unit);
+            this.type = unit.type;
         } catch (NullPointerException nullPointerException) {
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_VALUE, "Null value Provided");
         }
     }
 
-    /**
-     * @param q1
-     * @param unitType
-     * @return converted value
-     */
-    public QuantityMeasurement convertValue(QuantityMeasurement q1, UnitConversion unitType) {
-        q1.value = q1.value * unitType.unit;
-        return q1;
+    public boolean compare(QuantityMeasurement value2) throws QuantityMeasurementException {
+        if (this.type != value2.type)
+            throw new QuantityMeasurementException((QuantityMeasurementException.ExceptionType.IN_COMPATIBLE), "Values are of in compatible types");
+        return Double.compare(this.value, value2.value) == 0;
     }
 
     @Override
@@ -44,8 +33,7 @@ public class QuantityMeasurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        if (Objects.equals(value, that.value))
-            return true;
-        return false;
+        return Objects.equals(value, that.value) &&
+                type == that.type;
     }
 }
